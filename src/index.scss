@@ -1,0 +1,68 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(209, 209, 209, .5);
+
+  &__window {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_hidden {
+    display: none;
+  }
+}
+
+.login, .password, .submit, .button {
+  margin-bottom: 10px;
+  width: 100px;
+  height: 20px;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+
+  background-color: #2ee4ff;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.submit {
+  width: 100px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(209, 209, 209, .5);
+
+  &_hidden {
+   display: none;
+  }
+}
