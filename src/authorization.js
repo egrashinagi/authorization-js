@@ -57,5 +57,5 @@ function checkPassword() {
 
 buttonClose.addEventListener('click', messWindowClose);
 
-login.addEventListener('blur', validateLogin, validateEmail);
+login.addEventListener('blur', validateLogin);
 password.addEventListener('submit', checkPassword);
