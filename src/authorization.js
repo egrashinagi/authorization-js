@@ -4,7 +4,9 @@ const login = popup.querySelector('.login');
 const password = popup.querySelector('.password');
 const timer = document.querySelector('.timer');
 const message = document.querySelector('.message');
-
+const result = document.querySelector('.result');
+const buttonClose = message.querySelector('.button-close');
+const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function authWindowOpen() {
     popup.style.display = 'flex';
@@ -31,38 +33,29 @@ function messWindowClose() {
     message.style.display = 'none';
 }
 
-login.addEventListener('onfocus', function () {
-    if (login.value !=='' && password.value !=='') {
-        messWindowOpen();
+function validateEmail(email) {
+    return reg.test(String(email).toLowerCase());
+}
+
+
+function validateLogin() {
+    if (login !== reg) {
+        result.innerText = 'введите верный эмейл';
+        result.style.color = 'red';
+        login.style.border = '1px solid red';
+
     } else {
-        timeCounter();
-        setTimeout(() => popup.style.display='flex', 10000);
+        messWindowOpen();
     }
-});
-
-if (login.value !=='' && password.value !=='') {
-    popup.style.display = 'none';
-    alert('Успех');
-} else {
-    timeCounter();
-    setTimeout(() => popup.style.display='flex', 10000);
 }
 
-
-function timeCounter() {
-    let hou = '00';
-    let sec = '10';
-    setInterval(function(){
-
-        const timerID = document.querySelector('.timer').innerHTML = hou +" : " + sec ;
-        sec--;
-        if(sec === '00')
-        {
-            setTimeout(
-                function () {
-                    clearInterval(timerID)
-                }, 10000
-            )
-        }
-    },500);
+function checkPassword() {
+    if (password !=='') {
+        authWindowClose();
+    }
 }
+
+buttonClose.addEventListener('click', messWindowClose);
+
+login.addEventListener('blur', validateLogin, validateEmail);
+password.addEventListener('submit', checkPassword);
