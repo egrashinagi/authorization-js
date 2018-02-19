@@ -3,15 +3,37 @@ const button = document.querySelector('.button');
 const login = popup.querySelector('.login');
 const password = popup.querySelector('.password');
 const timer = document.querySelector('.timer');
+const message = document.querySelector('.message');
 
-button.addEventListener('click', () => {
+
+function authWindowOpen() {
     popup.style.display = 'flex';
-});
+}
+
+function authWindowClose() {
+    popup.style.display = 'none';
+}
+button.addEventListener('click', authWindowOpen);
+
+function timerWindowOpen() {
+    timer.style.display = 'flex';
+}
+
+function timerWindowClose() {
+    timer.style.display = 'none';
+}
+
+function messWindowOpen() {
+    message.style.display = 'flex';
+}
+
+function messWindowClose() {
+    message.style.display = 'none';
+}
 
 login.addEventListener('onfocus', function () {
     if (login.value !=='' && password.value !=='') {
-        popup.style.display = 'none';
-        alert('Успех');
+        messWindowOpen();
     } else {
         timeCounter();
         setTimeout(() => popup.style.display='flex', 10000);

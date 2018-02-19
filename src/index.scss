@@ -10,7 +10,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(209, 209, 209, .5);
+  background-color: rgba(209, 209, 209, .8);
 
   &__window {
     display: flex;
@@ -60,9 +60,29 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(209, 209, 209, .5);
+  background-color: rgba(209, 209, 209, .8);
 
   &_hidden {
    display: none;
   }
 }
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(209, 209, 209, .8);
+
+  &_hidden {
+    display: none;
+  }
+}
+
