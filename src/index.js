@@ -8,7 +8,6 @@ const timer = document.querySelector('.timer');
 const message = document.querySelector('.message');
 const result = document.querySelector('.result');
 const buttonClose = message.querySelector('.button-close');
-const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function authWindowOpen() {
     popup.style.display = 'flex';
@@ -35,29 +34,34 @@ function messWindowClose() {
     message.style.display = 'none';
 }
 
-function validateEmail(email) {
-    return reg.test(String(email).toLowerCase());
-}
-
-
-function validateLogin() {
-    if (login !== reg) {
-        result.innerText = 'введите верный эмейл';
-        result.style.color = 'red';
-        login.style.border = '1px solid red';
-
-    } else {
-        messWindowOpen();
-    }
-}
-
 function checkPassword() {
-    if (password !=='') {
+    if (password !== '') {
         authWindowClose();
     }
 }
 
+function validateEmail(email) {
+    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function validate() {
+    result.innerText = " ";
+    let email = login.value;
+    if (validateEmail(email)) {
+        result.innerText = email + " отлично! ";
+        result.style.color = 'green';
+        login.style.border = '1px solid green';
+    } else {
+        result.innerText = email + " Не валидно " + "." + " " +  "Введите верный email ";
+        result.style.color = 'red';
+        login.style.border = '1px solid red';
+        result.style.marginBottom = '10px';
+    }
+    return false;
+}
+
 buttonClose.addEventListener('click', messWindowClose);
 
-login.addEventListener('blur', validateLogin);
+login.addEventListener('blur', validate);
 password.addEventListener('submit', checkPassword);
