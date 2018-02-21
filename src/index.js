@@ -1,20 +1,20 @@
 import './index.scss';
 
-const popup = document.querySelector('.popup');
+const popupAuth = document.querySelector('.popup');
 const button = document.querySelector('.button');
-const login = popup.querySelector('.login');
-const password = popup.querySelector('.password');
+const login = popupAuth.querySelector('.login');
+const password = popupAuth.querySelector('.password');
 const timer = document.querySelector('.timer');
 const message = document.querySelector('.message');
 const result = document.querySelector('.result');
 const buttonClose = message.querySelector('.button-close');
 
 function authWindowOpen() {
-    popup.style.display = 'flex';
+    popupAuth.style.display = 'flex';
 }
 
 function authWindowClose() {
-    popup.style.display = 'none';
+    popupAuth.style.display = 'none';
 }
 button.addEventListener('click', authWindowOpen);
 
