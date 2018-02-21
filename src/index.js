@@ -5,9 +5,9 @@ const buttonEnter = document.querySelector('.button');
 const loginField = popupAuth.querySelector('.login');
 const passwordField = popupAuth.querySelector('.password');
 const popupTimer = document.querySelector('.timer');
-const message = document.querySelector('.message');
+const popopMessage = document.querySelector('.message');
 const result = document.querySelector('.result');
-const buttonClose = message.querySelector('.button-close');
+const buttonClose = popopMessage.querySelector('.button-close');
 
 function authWindowOpen() {
     popupAuth.style.display = 'flex';
@@ -45,11 +45,11 @@ function timerWindowClose() {
 }
 
 function messWindowOpen() {
-    message.style.display = 'flex';
+    popopMessage.style.display = 'flex';
 }
 
 function messWindowClose() {
-    message.style.display = 'none';
+    popopMessage.style.display = 'none';
 }
 
 function checkPassword() {
