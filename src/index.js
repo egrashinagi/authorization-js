@@ -1,7 +1,7 @@
 import './index.scss';
 
 const popupAuth = document.querySelector('.popup');
-const button = document.querySelector('.button');
+const buttonEnter = document.querySelector('.button');
 const login = popupAuth.querySelector('.login');
 const password = popupAuth.querySelector('.password');
 const timer = document.querySelector('.timer');
@@ -16,7 +16,7 @@ function authWindowOpen() {
 function authWindowClose() {
     popupAuth.style.display = 'none';
 }
-button.addEventListener('click', authWindowOpen);
+buttonEnter.addEventListener('click', authWindowOpen);
 
 function timeCounter() {
     let hou = '00';
