@@ -4,7 +4,7 @@ const popupAuth = document.querySelector('.popup');
 const buttonEnter = document.querySelector('.button');
 const loginField = popupAuth.querySelector('.login');
 const passwordField = popupAuth.querySelector('.password');
-const timer = document.querySelector('.timer');
+const popupTimer = document.querySelector('.timer');
 const message = document.querySelector('.message');
 const result = document.querySelector('.result');
 const buttonClose = message.querySelector('.button-close');
@@ -37,11 +37,11 @@ function timeCounter() {
 }
 
 function timerWindowOpen() {
-    timer.style.display = 'flex';
+    popupTimer.style.display = 'flex';
 }
 
 function timerWindowClose() {
-    timer.style.display = 'none';
+    popupTimer.style.display = 'none';
 }
 
 function messWindowOpen() {
