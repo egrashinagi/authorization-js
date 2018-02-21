@@ -18,6 +18,24 @@ function authWindowClose() {
 }
 button.addEventListener('click', authWindowOpen);
 
+function timeCounter() {
+    let hou = '00';
+    let sec = '10';
+    setInterval(function(){
+
+        const timerID = document.querySelector('.timer').innerHTML = hou +" : " + sec ;
+        sec--;
+        if(sec === '00')
+        {
+            setTimeout(
+                function () {
+                    clearInterval(timerID)
+                }, 10000
+            )
+        }
+    },500);
+}
+
 function timerWindowOpen() {
     timer.style.display = 'flex';
 }
@@ -35,13 +53,13 @@ function messWindowClose() {
 }
 
 function checkPassword() {
-    if (password !== '') {
-        authWindowClose();
+    if (password !== ' ') {
+        messWindowOpen();
     }
 }
 
 function validateEmail(email) {
-    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
 
@@ -52,6 +70,7 @@ function validate() {
         result.innerText = email + " отлично! ";
         result.style.color = 'green';
         login.style.border = '1px solid green';
+        result.style.marginBottom = '10px';
     } else {
         result.innerText = email + " Не валидно " + "." + " " +  "Введите верный email ";
         result.style.color = 'red';
