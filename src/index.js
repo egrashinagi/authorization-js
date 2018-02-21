@@ -3,7 +3,7 @@ import './index.scss';
 const popupAuth = document.querySelector('.popup');
 const buttonEnter = document.querySelector('.button');
 const loginField = popupAuth.querySelector('.login');
-const password = popupAuth.querySelector('.password');
+const passwordField = popupAuth.querySelector('.password');
 const timer = document.querySelector('.timer');
 const message = document.querySelector('.message');
 const result = document.querySelector('.result');
@@ -53,7 +53,7 @@ function messWindowClose() {
 }
 
 function checkPassword() {
-    if (password !== ' ') {
+    if (passwordField !== ' ') {
         messWindowOpen();
     }
 }
@@ -83,4 +83,4 @@ function validate() {
 buttonClose.addEventListener('click', messWindowClose);
 
 loginField.addEventListener('blur', validate);
-password.addEventListener('submit', checkPassword);
+passwordField.addEventListener('submit', checkPassword);
