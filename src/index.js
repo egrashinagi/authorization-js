@@ -2,7 +2,7 @@ import './index.scss';
 
 const popupAuth = document.querySelector('.popup');
 const buttonEnter = document.querySelector('.button');
-const login = popupAuth.querySelector('.login');
+const loginField = popupAuth.querySelector('.login');
 const password = popupAuth.querySelector('.password');
 const timer = document.querySelector('.timer');
 const message = document.querySelector('.message');
@@ -65,16 +65,16 @@ function validateEmail(email) {
 
 function validate() {
     result.innerText = " ";
-    let email = login.value;
+    let email = loginField.value;
     if (validateEmail(email)) {
         result.innerText = email + " отлично! ";
         result.style.color = 'green';
-        login.style.border = '1px solid green';
+        loginField.style.border = '1px solid green';
         result.style.marginBottom = '10px';
     } else {
         result.innerText = email + " Не валидно " + "." + " " +  "Введите верный email ";
         result.style.color = 'red';
-        login.style.border = '1px solid red';
+        loginField.style.border = '1px solid red';
         result.style.marginBottom = '10px';
     }
     return false;
@@ -82,5 +82,5 @@ function validate() {
 
 buttonClose.addEventListener('click', messWindowClose);
 
-login.addEventListener('blur', validate);
+loginField.addEventListener('blur', validate);
 password.addEventListener('submit', checkPassword);
