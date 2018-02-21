@@ -7,7 +7,7 @@ const passwordField = popupAuth.querySelector('.password');
 const popupTimer = document.querySelector('.timer');
 const popopMessage = document.querySelector('.message');
 const result = document.querySelector('.result');
-const buttonClose = popopMessage.querySelector('.button-close');
+const buttonCloseWindow = popopMessage.querySelector('.button-close');
 
 function authWindowOpen() {
     popupAuth.style.display = 'flex';
@@ -80,7 +80,7 @@ function validate() {
     return false;
 }
 
-buttonClose.addEventListener('click', messWindowClose);
+buttonCloseWindow.addEventListener('click', messWindowClose);
 
 loginField.addEventListener('blur', validate);
 passwordField.addEventListener('submit', checkPassword);
